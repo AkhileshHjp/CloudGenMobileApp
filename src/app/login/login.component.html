@@ -1,0 +1,29 @@
+<div id="wrapper">
+	<div class="app">
+
+		<div class="bg"></div>
+
+		<form  [formGroup]="loginForm">
+			<header>
+				<img src="../../assets/icon/logo.png">
+			</header>
+
+			<div class="inputs">
+					<input type="text"  placeholder="username or email" formControlName="username">
+				<input type="password"  placeholder="password" formControlName="password">
+				
+
+				<p class="light"><a href="#">Forgot password?</a></p>
+			</div>
+
+		</form>
+
+		<footer>
+			<button (click)="onLogin()">Continue</button>
+			<p>Don't have an account? <a href="#">Sign Up</a></p>
+		</footer>
+
+
+	</div>
+
+	</div>
