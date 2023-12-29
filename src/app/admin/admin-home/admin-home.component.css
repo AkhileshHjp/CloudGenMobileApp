@@ -1,0 +1,107 @@
+/******************** css for home layout start **********************/
+mat-sidenav-container {
+    width: 100%;
+    height: 100vh;
+    background-color: #fafafa;
+}
+
+
+mat-toolbar {
+    height: 60px;
+    justify-content: space-between;
+    position: sticky;
+    z-index: 3;
+}
+
+.toolbar mat-toolbar {
+    background-color: #fff;
+    box-shadow: 0 -3px 10px 3px rgba(0, 0, 0, 0.2);
+}
+
+mat-icon {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+mat-sidenav {
+    width: 265px;
+    background-color: #fff;
+}
+
+.profile_card {
+    width: 265px;
+    height: 60px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.profile_card img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.profile_card mat-icon {
+    position: relative;
+    right: 0px;
+    top: -20px;
+    float: right;
+}
+
+.main {
+    width: 100%;
+    height: calc(100vh - 120px);
+    overflow-x: scroll;
+    z-index: 1;
+}
+
+mat-card span{
+    width: 80%;
+    position: relative;
+    left: 50px;
+}
+
+input{
+    border: none;
+    outline: none;
+    padding: 1px 5px;
+
+}
+.profile_name{
+    color: rgb(13, 13, 72);
+    font-size: 16px;
+}
+
+#footer {
+    height: 60px;
+    justify-content: space-between;
+    background-color: #fafafa;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+#footer mat-toolbar {
+    background-color: #fff;
+}
+
+#footer button {
+    height: 50px;
+    white-space: pre-wrap;
+    line-height: 10px;
+    margin: 10px 10px;
+    width: 20%;
+    background-color: #fafafa;
+}
+
+
+mat-hint {
+    font-size: 12px;
+}
+
+a span {
+    position: relative;
+    top: -5px;
+}

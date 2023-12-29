@@ -32,16 +32,18 @@ export class LoginComponent implements OnInit{
 
     this._crud.login(loginForm).subscribe(
       (res: any) => {
-        console.log(res);
+        // console.log(res);
         if (res.success == true) {
           if (res.parameter === "admin") {
             this._router.navigate(['/admin'])
-            alert(res.message)
+            alert("login successfully")
           } else {
             this._router.navigate(['/user'])
-            alert(res.message)
+            alert("login successfully")
 
           }
+
+          localStorage.setItem('isLogin',JSON.stringify(res))
         }else{
           alert(res.message)
           return

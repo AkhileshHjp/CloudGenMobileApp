@@ -1,0 +1,158 @@
+<div id="wrapper">
+    <mat-toolbar>View Employee</mat-toolbar>
+    <div class="img_cls">
+        <img id="profile_img" [src]="profile_picture">
+    </div>
+
+
+    <form [formGroup]="emp_form">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Branch </mat-label>
+            <input matInput readonly placeholder="Enter employee branch" formControlName="employee_branch" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Type </mat-label>
+            <input matInput readonly placeholder="Enter Employee type" formControlName="employee_type" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Designation </mat-label>
+            <input matInput readonly placeholder="Enter Employee Designation:" formControlName="employee_designation"
+                readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee ID </mat-label>
+            <input matInput readonly placeholder="Enter Employee ID" formControlName="employee_id" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Login User ID</mat-label>
+            <input matInput readonly placeholder="Enter Login User ID" formControlName="login_userid" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Password </mat-label>
+            <input matInput readonly placeholder="Password" formControlName="password" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee First Name </mat-label>
+            <input matInput readonly placeholder="Enter Employee First Name" formControlName="employee_first_name"
+                readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Last Name </mat-label>
+            <input matInput readonly placeholder="Enter Employee Last Name" formControlName="employee_last_name"
+                readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Gender </mat-label>
+            <input matInput readonly placeholder="Gender" formControlName="gender" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Mobile No </mat-label>
+            <input matInput readonly placeholder="Enter Mobile No" formControlName="mobile_no" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>LandLine No</mat-label>
+            <input matInput readonly placeholder="Enter LandLine No" formControlName="phone_no" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Alternate No</mat-label>
+            <input matInput readonly placeholder="Enter Alternate No" formControlName="alternate_number" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput readonly type="date" placeholder="Date Of Birth" formControlName="dob" readonly>
+        </mat-form-field>
+
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Aadhar No</mat-label>
+            <input matInput placeholder="Enter Aadhar No" formControlName="aadhar_no" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>PAN No</mat-label>
+            <input matInput placeholder="Enter PAN No" formControlName="pan_no" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Salary (In CTC)</mat-label>
+            <input matInput placeholder="Enter Salary (In CTC)" formControlName="salary_ctc" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Qualification</mat-label>
+            <input matInput placeholder="Enter Qualification " formControlName="qualification" readonly>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>State</mat-label>
+            <input matInput formControlName="state" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Area Code</mat-label>
+            <input matInput placeholder="Enter Area COde " formControlName="area_code" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Enter Area COde " formControlName="address" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Department</mat-label>
+            <input matInput placeholder="Employee Department" formControlName="employee_department" readonly>
+        </mat-form-field>
+
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Reporting Manager</mat-label>
+            <input matInput formControlName="reporting_manager" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Current Status</mat-label>
+            <mat-select formControlName="current_status">
+                <mat-option value="Active" disabled>Active</mat-option>
+                <mat-option value="Inactive" disabled>Inactive</mat-option>
+            </mat-select>
+
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Join Date</mat-label>
+            <input matInput type="date" formControlName="join_date" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Exit Date</mat-label>
+            <input matInput type="date" formControlName="exit_date" readonly>
+        </mat-form-field>
+    </form>
+
+    <br>
+</div>

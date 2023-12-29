@@ -14,8 +14,8 @@ export class CrudService {
 
   baseUrl: string = this._shared.base_url
 
-  login(data:any){
-    return  this.http.post(`${this.baseUrl}/api/Login`, data)
+  login(data: any) {
+    return this.http.post(`${this.baseUrl}api/Login`, data)
   }
   get_emp() {
     return this.http.get(`${this.baseUrl}api/EmployeeManagement`)
@@ -26,7 +26,7 @@ export class CrudService {
   }
 
   put_emp(data: any, id: any) {
-    return this.http.post(`${this.baseUrl}/api/EmployeeManagement/${id}`, data)
+    return this.http.post(`${this.baseUrl}api/EmployeeManagement/${id}`, data)
   }
 
   get_cuntery() {
@@ -45,32 +45,46 @@ export class CrudService {
   // for branch  manegment
 
   get_branch() {
-    return this.http.get(`${this.baseUrl}/api/BranchManage`)
+    return this.http.get(`${this.baseUrl}api/BranchManage`)
   }
 
   post_branch(data: any) {
-    return this.http.post(`${this.baseUrl}/api/BranchManage`, data)
+    return this.http.post(`${this.baseUrl}api/BranchManage`, data)
   }
 
   put_branch(data: any, id: any) {
-    return this.http.post(`${this.baseUrl}/api/BranchManage/${id}`, data)
+    return this.http.post(`${this.baseUrl}api/BranchManage/${id}`, data)
   }
 
   // FOR LEADE 
 
   get_leadSheet() {
-    return this.http.get(`${this.baseUrl}/api/ManageLeadSheet`)
+    return this.http.get(`${this.baseUrl}api/ManageLeadSheet`)
   }
 
   post_leadSheet(data: any) {
-    return this.http.post(`${this.baseUrl}/api/ManageLeadSheet`, data)
+    return this.http.post(`${this.baseUrl}api/ManageLeadSheet`, data)
   }
 
   put_leadSheet(data: any, id: any) {
-    return this.http.post(`${this.baseUrl}/api/ManageLeadSheet/${id}`, data)
+    return this.http.post(`${this.baseUrl}api/ManageLeadSheet/${id}`, data)
   }
 
 
+  // for Quotation
+
+  get_quotation() {
+    return this.http.get(`${this.baseUrl}api/ManageQuotation`)
+  }
+
+  post_quotation(data: any) {
+    return this.http.post(`${this.baseUrl}api/ManageQuotation`, data)
+  }
+
+  put_quotation(data: any, id: any) {
+    return this.http.post(`${this.baseUrl}api/ManageQuotation/${id}`, data)
+  }
+ 
 
 
 }

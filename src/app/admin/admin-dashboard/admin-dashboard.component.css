@@ -1,0 +1,30 @@
+#wrapper{
+    background-color: #dce5f3;
+  }
+  
+  .example-card {
+      max-width: 85%;
+      height: 150px;
+      margin: 20px auto;
+    }
+    
+    mat-toolbar{
+      position: relative;
+      top: -10px;
+    }
+  
+    .example-header-image {
+      background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+      background-size: cover;
+    }
+  
+    .icon_{
+      width: 60px;
+      height: 60px;
+      font-size: 50px;
+      position: absolute;
+      right: 10px;
+      top: 60px;
+      color: #05aff6;
+    }
+    

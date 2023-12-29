@@ -1,0 +1,90 @@
+<div id="wrapper">
+    <mat-toolbar>Add Branch</mat-toolbar>
+
+    <form [formGroup]="branch_form">
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Branch Name </mat-label>
+            <input matInput placeholder="Enter Branch Name" formControlName="BranchName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Branch Email </mat-label>
+            <input matInput placeholder="Enter Branch Email" formControlName="BranchEmail">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Contact Person </mat-label>
+            <input matInput placeholder="Enter Contact Person" formControlName="ContactPerson">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Land Line No</mat-label>
+            <input matInput placeholder="Enter Land Line No" formControlName="LandLineNo">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Contact Person Mobile</mat-label>
+            <input matInput placeholder="Enter Contact Person Mobile" formControlName="ContactPersonMobile">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> Contact Person Email</mat-label>
+            <input matInput placeholder="Enter Contact Person Email" formControlName="ContactPersonEmail">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>GST No</mat-label>
+            <input matInput placeholder="Enter GST No" formControlName="GSTNo">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Pan No</mat-label>
+            <input matInput placeholder="Enter Pan No" formControlName="PanNo">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Pin Code</mat-label>
+            <input matInput placeholder="Enter Pin Code" formControlName="PinCode">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Branch Registration No</mat-label>
+            <input matInput placeholder="Enter Branch Registration No" formControlName="BranchRegistrationNo">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>State Name</mat-label>
+            <input matInput placeholder="Enter State Name" formControlName="StateName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>State Code</mat-label>
+            <input matInput placeholder="Enter State Code" formControlName="StateCode">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Registration Date</mat-label>
+            <input matInput type="date" formControlName="RegistrationDate">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>City Name</mat-label>
+            <input matInput placeholder="Enter City Name" formControlName="CityName">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>City Code</mat-label>
+            <input matInput placeholder="Enter City Code" formControlName="CityCode">
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Branch Address </mat-label>
+            <input matInput placeholder="Enter Branch Address" formControlName="BranchAddress">
+        </mat-form-field>
+
+        <button mat-raised-button (click)="id >0 ? onUpdate() : onSubmit()" color="warn">Submit</button>
+    </form>
+
+    <br>
+</div>

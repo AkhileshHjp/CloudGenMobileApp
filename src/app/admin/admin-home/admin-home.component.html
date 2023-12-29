@@ -1,0 +1,132 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidebar mode="over">
+        <mat-card (click)="sidebar.toggle()" (click)="onProfile()" class="profile_card">
+            <img [src]="ImgUrl">
+            <span>
+                <input [value]="name" disabled class="profile_name">
+                <input [value]="designation" disabled>
+            </span>
+            <!-- <mat-icon style="float: right;">keyboard_arrow_right</mat-icon> -->
+        </mat-card>
+
+        <mat-nav-list>
+            <a mat-list-item (click)="sidebar.toggle()" [routerLink]="['/admin/dashboard']">
+                <mat-icon>dashboard</mat-icon> &nbsp;
+                <span>Dashboard</span></a>
+
+            <!-- for branch  -->
+
+            <span>
+                <a mat-list-item (click)="branchSubMenu()"><mat-icon>receipt</mat-icon> &nbsp;<span>Branch
+                        Manegment</span>
+                    <mat-icon *ngIf="!onBranchSubMenu">keyboard_arrow_right</mat-icon> <mat-icon
+                        *ngIf="onBranchSubMenu">keyboard_arrow_down</mat-icon></a>
+
+                <span *ngIf="onBranchSubMenu" class="SubMenu">
+                    <a mat-list-item (click)="branchSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/branchList']"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> View Branch</span></a>
+
+                    <a mat-list-item (click)="branchSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/addBranch']"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> Add Branch</span></a>
+
+                </span>
+            </span>
+
+            <!-- for employee  -->
+            <span>
+                <a mat-list-item (click)="empSubMenu()"><mat-icon>group</mat-icon> &nbsp;<span>Employee
+                        Manegment</span>
+                    <mat-icon *ngIf="!onEmpSubMenu">keyboard_arrow_right</mat-icon> <mat-icon
+                        *ngIf="onEmpSubMenu">keyboard_arrow_down</mat-icon></a>
+
+                <span *ngIf="onEmpSubMenu" class="SubMenu">
+                    <a mat-list-item (click)="empSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/employeeList']"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> View Employee</span></a>
+
+                    <a mat-list-item (click)="empSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/addEmployee']"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> Add Employee</span></a>
+
+                </span>
+            </span>
+
+            <!-- for lead  -->
+            <span>
+                <a mat-list-item (click)="LeadSubMenu()"><mat-icon>receipt</mat-icon> &nbsp;<span>Lead Manegment</span>
+                    <mat-icon *ngIf="!onLeadSubMenu">keyboard_arrow_right</mat-icon> <mat-icon
+                        *ngIf="onLeadSubMenu">keyboard_arrow_down</mat-icon></a>
+                <span *ngIf="onLeadSubMenu" class="SubMenu">
+                    <a mat-list-item (click)="LeadSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/leadView']"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> View Lead</span></a>
+
+                    <a mat-list-item (click)="LeadSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/addLead']"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> Add Lead</span></a>
+
+                    <a mat-list-item (click)="LeadSubMenu()" (click)="sidebar.toggle()"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> Assign Lead</span></a>
+
+                    <a mat-list-item (click)="LeadSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/viewLead']"><mat-icon>av_timer</mat-icon> &nbsp; <span> View Assign
+                            Lead</span></a>
+                </span>
+            </span>
+
+            <!-- for Quotation  -->
+            <span>
+                <a mat-list-item (click)="QuotationSubMenu()"><mat-icon>receipt</mat-icon> &nbsp;<span>Lead Quotation</span>
+                    <mat-icon *ngIf="!onQuotationSubMenu">keyboard_arrow_right</mat-icon> <mat-icon
+                        *ngIf="onQuotationSubMenu">keyboard_arrow_down</mat-icon></a>
+                <span *ngIf="onQuotationSubMenu" class="SubMenu">
+
+                    <a mat-list-item (click)="QuotationSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/quotaionList']"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> View Quotation</span></a>
+
+                    <a mat-list-item (click)="QuotationSubMenu()" (click)="sidebar.toggle()"
+                        [routerLink]="['/admin/addQuotaion']"><mat-icon>donut_small</mat-icon>
+                        &nbsp; <span> Add Quotation</span></a>
+                </span>
+            </span>
+
+
+            <a mat-list-item (click)="sidebar.toggle()" (click)="logout()"><mat-icon
+                    style="transform: rotate(90deg);">save_alt</mat-icon> &nbsp; <span>Logout</span> </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolbar">
+                <mat-toolbar>
+                    <button mat-icon-button (click)="sidebar.toggle()"> <mat-icon>menu</mat-icon></button>
+                    <button mat-icon-button> <mat-icon matBadgeColor="warn">notifications</mat-icon></button>
+                </mat-toolbar>
+            </div>
+
+            <div class="main">
+
+                <router-outlet></router-outlet>
+            </div>
+
+
+            <div id="footer">
+                <mat-toolbar>
+                    <button mat-icon-button [routerLink]="['/user/dashboard']"><mat-icon>home</mat-icon>
+                        <br><mat-hint>Home</mat-hint></button>
+                    <button mat-icon-button
+                        [routerLink]="['/user/viewLead']"><mat-icon>group</mat-icon><br><mat-hint>Lead</mat-hint></button>
+                    <button mat-icon-button><mat-icon>receipt</mat-icon><br><mat-hint>Leave</mat-hint></button>
+                </mat-toolbar>
+            </div>
+
+
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

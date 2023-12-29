@@ -1,0 +1,28 @@
+<div id="wrapper">
+    
+    <mat-toolbar>
+      <span> View Employee</span>
+      <div class="search-box">
+        <button class="btn-search"><mat-icon>search</mat-icon> </button>
+        <input type="text" class="input-search" placeholder="Type to Search...">
+      </div>
+    </mat-toolbar>
+  
+    <mat-card class="example-card" *ngFor="let data of lead_data" (click)="OnView(data)">
+      <mat-card-header>
+        <mat-card-title><mat-icon>person</mat-icon> {{data.employee_first_name +" "+  data.employee_last_name}}</mat-card-title>
+        <mat-card-subtitle><mat-icon>description</mat-icon> {{data.employee_type}}</mat-card-subtitle>
+        <mat-card-subtitle><mat-icon> phone</mat-icon> {{data.mobile_no}}</mat-card-subtitle>
+      </mat-card-header>
+    
+  
+      <mat-card-actions>
+        <button mat-icon-button color="primary" (click)="OnEdit(data)"><mat-icon>edit</mat-icon></button>
+      </mat-card-actions>
+      <div id="img_area"> 
+        <img [src]="data.profile_picture? url+data.profile_picture :'../../../assets/profileimage.jpg'" width="100%"  height="100%">
+      </div>
+    </mat-card>
+  
+  <br>
+  </div>

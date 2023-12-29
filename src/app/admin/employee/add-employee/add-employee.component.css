@@ -1,0 +1,29 @@
+#wrapper {
+    background-color: #dce5f3;
+    height: auto;
+}
+mat-toolbar{
+    position: relative;
+    background-color: #bfd2f0;
+    display: flex;
+    justify-content: space-between;
+}
+
+form{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.example-full-width{
+    width: 100%;
+}
+
+.file_box{
+    width: 95%;
+    height: 30px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 0.5px solid gray;
+}

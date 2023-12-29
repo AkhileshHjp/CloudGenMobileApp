@@ -1,0 +1,176 @@
+<div id="wrapper">
+    <mat-toolbar>Add Employee</mat-toolbar>
+
+    <form [formGroup]="emp_form">
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Branch</mat-label>
+            <mat-select  formControlName="employee_branch" >
+                <mat-option *ngFor="let branch of branch_name" [value]="branch.BranchName"> {{branch.BranchName}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Type </mat-label>
+            <input matInput placeholder="Enter Employee type" formControlName="employee_type">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Designation </mat-label>
+            <input matInput placeholder="Enter Employee Designation:" formControlName="employee_designation">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee ID </mat-label>
+            <input matInput placeholder="Enter Employee ID" formControlName="employee_id">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Login User ID</mat-label>
+            <input matInput placeholder="Enter Login User ID" formControlName="login_userid">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Password </mat-label>
+            <input matInput placeholder="Password" formControlName="password">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee First Name </mat-label>
+            <input matInput placeholder="Enter Employee First Name" formControlName="employee_first_name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Last Name </mat-label>
+            <input matInput placeholder="Enter Employee Last Name" formControlName="employee_last_name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Gender </mat-label>
+            <mat-select formControlName="gender">
+                <mat-option value="male">Male</mat-option>
+                <mat-option value="female">Female</mat-option>
+                <mat-option value="other">Other</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Mobile No </mat-label>
+            <input matInput placeholder="Enter Mobile No" formControlName="mobile_no">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>LandLine No</mat-label>
+            <input matInput placeholder="Enter LandLine No" formControlName="phone_no">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Alternate No</mat-label>
+            <input matInput placeholder="Enter Alternate No" formControlName="alternate_number">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Date Of Birth</mat-label>
+            <input matInput type="date" placeholder="Date Of Birth" formControlName="dob">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Aadhar No</mat-label>
+            <input matInput placeholder="Enter Aadhar No" formControlName="aadhar_no">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>PAN No</mat-label>
+            <input matInput placeholder="Enter PAN No" formControlName="pan_no">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Salary (In CTC)</mat-label>
+            <input matInput placeholder="Enter Salary (In CTC)" formControlName="salary_ctc">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Qualification</mat-label>
+            <input matInput placeholder="Enter Qualification " formControlName="qualification">
+        </mat-form-field>
+
+
+        <!-- <label>Profile Picture</label>
+        <input type="file" accept=".jpg,.png,.jpeg" (change  )> -->
+        <div class="file_box">
+            <label class="btn btn-secondary btn-file">Profile Picture
+                <input name="file" type="file" accept=".jpg,.png,jpeg" (change)="onFileChange($event)">
+            </label>
+        </div>
+        
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Country </mat-label>
+            <mat-select  formControlName="country" (valueChange)="SetState($event)" >
+                <mat-option *ngFor="let cou of country_data" [value]="cou" >{{cou.country_name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label> State </mat-label>
+            <mat-select formControlName="state" (valueChange)="SetCity($event)">
+                <mat-option *ngFor="let state of filter_state_data" [value]="state"> {{state.state_name}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>City</mat-label>
+            <mat-select  formControlName="city" >
+                <mat-option *ngFor="let city of filter_city_data" [value]="city.city_name"> {{city.city_name}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Area Code</mat-label>
+            <input matInput placeholder="Enter Area COde " formControlName="area_code">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Enter Area COde " formControlName="address">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Employee Department</mat-label>
+            <input matInput placeholder="Employee Department" formControlName="employee_department">
+        </mat-form-field>
+
+
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Reporting Manager</mat-label>
+            <mat-select formControlName="reporting_manager">
+                <mat-option value="Select Reporting Manager">Select Reporting Manager</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Current Status</mat-label>
+            <mat-select formControlName="current_status">
+                <mat-option value="Select Current Status">Select Current Status</mat-option>
+                <mat-option value="Active">Active</mat-option>
+                <mat-option value="Inactive">Inactive</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Join Date</mat-label>
+            <input matInput type="date" formControlName="join_date">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Exit Date</mat-label>
+            <input matInput type="date" formControlName="exit_date">
+        </mat-form-field>
+
+        
+        <button mat-raised-button (click)="update_data? onUpdate() : onSubmit()" color="warn">Submit</button>
+    </form>
+
+    <br>
+</div>

@@ -10,7 +10,7 @@
 
 			<div class="inputs">
 					<input type="text"  placeholder="username or email" formControlName="username">
-				<input type="password"  placeholder="password" formControlName="password">
+				<input type="password"  placeholder="password" formControlName="password" (keyup.enter)="onLogin()">
 				
 
 				<p class="light"><a href="#">Forgot password?</a></p>

@@ -1,0 +1,28 @@
+<div id="wrapper">
+    
+    <mat-toolbar>
+      <span> View Branch</span>
+      <div class="search-box">
+        <button class="btn-search"><mat-icon>search</mat-icon> </button>
+        <input type="text" class="input-search" placeholder="Type to Search...">
+      </div>
+    </mat-toolbar>
+  
+    <mat-card class="example-card" *ngFor="let data of branch_data" (click)="onView(data)">
+      <mat-card-header>
+        <mat-card-title><mat-icon>store</mat-icon> {{data.BranchName}}</mat-card-title>
+        <mat-card-subtitle><mat-icon>perm_phone_msg</mat-icon> {{data.LandLineNo}}</mat-card-subtitle>
+        <mat-card-subtitle><mat-icon> location_on</mat-icon> {{data.CityName}}</mat-card-subtitle>
+        <mat-card-subtitle><mat-icon>person</mat-icon> {{data.ContactPerson}}</mat-card-subtitle>
+        <mat-card-subtitle><mat-icon> contact_phone</mat-icon> {{data.ContactPersonMobile}}</mat-card-subtitle>
+      </mat-card-header>
+    
+  
+      <mat-card-actions>
+        <button mat-icon-button (click)="onEdit(data)"> 
+          <mat-icon >edit</mat-icon></button>   
+      </mat-card-actions>
+    </mat-card>
+  
+  <br>
+  </div>
