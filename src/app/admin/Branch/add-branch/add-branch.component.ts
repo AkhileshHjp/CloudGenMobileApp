@@ -19,10 +19,8 @@ export class AddBranchComponent {
     private _crud: CrudService,
     private _router: Router,
     private _shared: SharedService
-  ) {
-    this.id = this._shared.branch.id
-    console.log(this.id);
-
+     ) {
+    // this.id = this._shared.branch.id
   }
 
   ngOnInit(): void {
@@ -54,6 +52,8 @@ export class AddBranchComponent {
     //      this.branch_form.patchValue(res)
     //   }
     // )
+
+
     if (this.id > 0) {
       this.branch_form.patchValue(this._shared.branch)
 
@@ -95,7 +95,6 @@ export class AddBranchComponent {
 
 
   onUpdate() {
-    console.log(`update ${this.id}`);
 
     const branch_data = new FormData()
     branch_data.append('BranchName', this.branch_form.get('BranchName')?.value)
@@ -115,7 +114,7 @@ export class AddBranchComponent {
     branch_data.append('CityCode', this.branch_form.get('CityCode')?.value)
     branch_data.append('BranchAddress', this.branch_form.get('BranchAddress')?.value)
 
-    this._crud.put_branch(branch_data, this.id).subscribe(
+    this._crud.put_branch(branch_data ,'').subscribe(
       (res: any) => {
         console.log(res);
         if (res == "Updated successfully") {

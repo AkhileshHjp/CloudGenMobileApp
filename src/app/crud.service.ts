@@ -17,6 +17,7 @@ export class CrudService {
   login(data: any) {
     return this.http.post(`${this.baseUrl}api/Login`, data)
   }
+  
   get_emp() {
     return this.http.get(`${this.baseUrl}api/EmployeeManagement`)
   }

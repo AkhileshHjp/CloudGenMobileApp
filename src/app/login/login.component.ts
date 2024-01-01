@@ -8,7 +8,7 @@ import { CrudService } from '../crud.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent implements OnInit {
   loginForm !: FormGroup
   constructor(
     private _router: Router,
@@ -25,30 +25,43 @@ export class LoginComponent implements OnInit{
 
   onLogin() {
     console.log(this.loginForm.value);
+    if (!this.loginForm.valid) {
+      alert("Plz Fill username and password..!!")
+      return
+    } else {
 
-    const loginForm = new FormData()
-    loginForm.append('username', this.loginForm.get('username')?.value)
-    loginForm.append('password', this.loginForm.get('password')?.value)
+      const loginForm = new FormData()
+      loginForm.append('username', this.loginForm.get('username')?.value)
+      loginForm.append('password', this.loginForm.get('password')?.value)
 
-    this._crud.login(loginForm).subscribe(
-      (res: any) => {
-        // console.log(res);
-        if (res.success == true) {
-          if (res.parameter === "admin") {
-            this._router.navigate(['/admin'])
-            alert("login successfully")
+      this._crud.login(loginForm).subscribe(
+        (res: any) => {
+          if (res.success == true) {
+            if (res.parameter === "admin") {
+              this._router.navigate(['/admin'])
+              alert("login successfully")
+            } else {
+              this._router.navigate(['/user'])
+              alert("login successfully")
+
+            }
+
+            localStorage.setItem('isLogin', JSON.stringify(res))
           } else {
-            this._router.navigate(['/user'])
-            alert("login successfully")
-
+            alert("Login Fail")
+            return
           }
-
-          localStorage.setItem('isLogin',JSON.stringify(res))
-        }else{
-          alert(res.message)
+        },
+        (error)=>{
+          console.log(error);
+          alert("login Fail... !")
           return
+          
         }
-      }
-    )
+
+
+      )
+    }
+
   }
 }

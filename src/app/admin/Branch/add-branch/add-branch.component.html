@@ -83,7 +83,7 @@
             <input matInput placeholder="Enter Branch Address" formControlName="BranchAddress">
         </mat-form-field>
 
-        <button mat-raised-button (click)="id >0 ? onUpdate() : onSubmit()" color="warn">Submit</button>
+        <button mat-raised-button (click)="id ? onUpdate() : onSubmit()" color="warn">Submit</button>
     </form>
 
     <br>
