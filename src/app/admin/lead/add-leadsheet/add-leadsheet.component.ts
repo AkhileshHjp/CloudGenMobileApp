@@ -12,14 +12,13 @@ import { SharedService } from 'src/app/shared.service';
 export class AddLeadsheetComponent {
   update_data: any
   lead_form !: FormGroup
-  id: any = 0
   constructor(
     private fb: FormBuilder,
     private _crud: CrudService,
     private _shared: SharedService,
     private _routing: Router
   ) {
-    this.id = this._shared.lead_sheet.id
+    this.update_data = this._routing.getCurrentNavigation()
   }
 
   ngOnInit(): void {
@@ -32,8 +31,8 @@ export class AddLeadsheetComponent {
       contactperson: ['', Validators.required],
     })
 
-    if (this.id > 0) {
-      this.lead_form.patchValue(this._shared.lead_sheet)
+    if (this.update_data.id) {
+      this.lead_form.patchValue(this.update_data)
     }
 
 
@@ -68,7 +67,7 @@ export class AddLeadsheetComponent {
     lead_data.append('productname', this.lead_form.get('productname')?.value)
     lead_data.append('contactperson', this.lead_form.get('contactperson')?.value)
 
-    this._crud.put_leadSheet(lead_data, this.id).subscribe(
+    this._crud.put_leadSheet(lead_data, this.update_data.id).subscribe(
       (res: any) => {
         console.log(res);
         if (res == 'Update successfully') {

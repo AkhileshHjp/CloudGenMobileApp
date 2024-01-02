@@ -1,5 +1,5 @@
 <div id="wrapper">
-    <mat-toolbar>Add Branch</mat-toolbar>
+    <mat-toolbar> {{update_data.id?'Update Branch':'Add Branch'}}</mat-toolbar>
 
     <form [formGroup]="branch_form">
 
@@ -83,7 +83,7 @@
             <input matInput placeholder="Enter Branch Address" formControlName="BranchAddress">
         </mat-form-field>
 
-        <button mat-raised-button (click)="id ? onUpdate() : onSubmit()" color="warn">Submit</button>
+        <button mat-raised-button (click)="update_data.id ? onUpdate() : onSubmit()" color="warn">Submit</button>
     </form>
 
     <br>

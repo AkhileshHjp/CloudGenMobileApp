@@ -24,18 +24,17 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    console.log(this.loginForm.value);
     if (!this.loginForm.valid) {
       alert("Plz Fill username and password..!!")
       return
     } else {
-
       const loginForm = new FormData()
       loginForm.append('username', this.loginForm.get('username')?.value)
       loginForm.append('password', this.loginForm.get('password')?.value)
 
       this._crud.login(loginForm).subscribe(
         (res: any) => {
+          console.log(res);
           if (res.success == true) {
             if (res.parameter === "admin") {
               this._router.navigate(['/admin'])
@@ -43,7 +42,6 @@ export class LoginComponent implements OnInit {
             } else {
               this._router.navigate(['/user'])
               alert("login successfully")
-
             }
 
             localStorage.setItem('isLogin', JSON.stringify(res))
@@ -52,11 +50,11 @@ export class LoginComponent implements OnInit {
             return
           }
         },
-        (error)=>{
+        (error) => {
           console.log(error);
           alert("login Fail... !")
           return
-          
+
         }
 
 

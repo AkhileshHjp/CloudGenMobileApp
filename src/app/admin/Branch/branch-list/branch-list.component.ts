@@ -27,13 +27,11 @@ export class BranchListComponent  implements OnInit{
   }
 
   onView(data: any) {
-    this._router.navigate(['/admin/addBranch'], data)
+    this._router.navigate(['/admin/viewBranch'], data)
   }
 
   onEdit(data: any) {
-    // this._shared.branch_data.next(data)
-     this._shared.getBranchData(data)
-    this._router.navigate(['admin/addBranch'])
+    this._router.navigate(['admin/addBranch'] , data)
   }
 
 }

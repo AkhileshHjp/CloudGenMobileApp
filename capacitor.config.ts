@@ -8,12 +8,7 @@ const config: CapacitorConfig = {
     androidScheme: 'https'
   },
 
-  "plugins": {
-    "SplashScreen": {
-      "launchShowDuration": 3000, 
-      "launchAutoHide": false     
-    }
-  },
+
 
   
 };

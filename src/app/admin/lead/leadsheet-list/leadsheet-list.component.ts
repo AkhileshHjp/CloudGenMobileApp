@@ -27,9 +27,7 @@ export class LeadsheetListComponent implements OnInit{
 
 
   onEdit(data: any) {
-    console.log(data);
-    this._shared.setLeadSheet(data)
-    this._routing.navigate(['/admin/addLead'])
+    this._routing.navigate(['/admin/addLead'] ,data)
 
   }
 }

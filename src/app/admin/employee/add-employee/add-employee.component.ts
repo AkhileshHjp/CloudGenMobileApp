@@ -66,6 +66,8 @@ export class AddEmployeeComponent {
         this.branch_name = res
       }
     )
+
+
   }
 
 
@@ -91,7 +93,7 @@ export class AddEmployeeComponent {
       }
     )
 
-    if (this.update_data) {
+    if (this.update_data.id) {
       this.emp_form.patchValue(this.update_data)
     }
   }
@@ -148,7 +150,7 @@ export class AddEmployeeComponent {
         console.log(res);
         if (res == "Inserted successfully") {
           alert("add successfully")
-          this._router.navigate(['/admin/viewEmp'])
+          this._router.navigate(['/admin/employeeList'])
         }
       }
     )
@@ -192,7 +194,7 @@ export class AddEmployeeComponent {
         console.log(res);
         if (res == "Updated successfully") {
           alert("Updated successfully")
-          this._router.navigate(['/admin/viewEmp'])
+          this._router.navigate(['admin/employeeList'])
         }
       }
     )

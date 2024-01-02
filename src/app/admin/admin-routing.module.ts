@@ -16,8 +16,10 @@ import { QuotationViewComponent } from './quotation/quotation-view/quotation-vie
 import { QuotationListComponent } from './quotation/quotation-list/quotation-list.component';
 
 const routes: Routes = [
+  
   {path:'', component:AdminHomeComponent, children:[
     {path:'', component:AdminDashboardComponent},
+    {path:'dashboard', component:AdminDashboardComponent},
     {path : 'addEmployee', component: AddEmployeeComponent},
     {path : 'employeeList', component : EmployeeListComponent},
     {path : 'employeeView', component :EmployeeViewComponent},

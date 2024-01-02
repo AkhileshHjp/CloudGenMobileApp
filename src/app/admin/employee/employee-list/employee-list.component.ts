@@ -28,11 +28,11 @@ export class EmployeeListComponent {
   }
 
   OnView(data: any) {
-    this._router.navigate(['/admin/empView'], data)
+    this._router.navigate(['/admin/employeeView'], data)
   }
 
   OnEdit(data: any) {
     console.log(data);
-    this._router.navigate(['admin/addEmp'], data)
+    this._router.navigate(['admin/addEmployee'], data)
   }
 }

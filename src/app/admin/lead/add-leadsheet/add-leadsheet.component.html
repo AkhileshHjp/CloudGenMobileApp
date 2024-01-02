@@ -1,5 +1,5 @@
 <div id="wrapper">
-    <mat-toolbar>Add Lead</mat-toolbar>
+    <mat-toolbar> {{update_data.id?'Update Lead':'Add Lead'}}</mat-toolbar>
 
     <form [formGroup]="lead_form">
 
@@ -34,7 +34,7 @@
         </mat-form-field>
 
 
-        <button mat-raised-button (click)="id>0? onUpdate() : onSubmit()" color="warn">Submit</button>
+        <button mat-raised-button (click)="update_data.id? onUpdate() : onSubmit()" color="warn">Submit</button>
     </form>
 
     <br>

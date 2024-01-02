@@ -10,11 +10,11 @@ export class SharedService {
    
   base_url:any = 'https://turningbrain.in/'
   emp_data :any
-  branch: any
+  branch_data: any
   lead_sheet :any
 
   getBranchData(data:any){
-      this.branch = data
+      this.branch_data = data
   }
   
   setLeadSheet(data:any){

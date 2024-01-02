@@ -12,15 +12,16 @@ import { SharedService } from 'src/app/shared.service';
 export class AddBranchComponent {
   branch_form !: FormGroup
   update_data: any
-  id: any = 0
 
   constructor(
     private fb: FormBuilder,
     private _crud: CrudService,
     private _router: Router,
     private _shared: SharedService
-     ) {
-    // this.id = this._shared.branch.id
+  ) {
+    this.update_data = this._router.getCurrentNavigation()?.extras
+    console.log(this.update_data);
+
   }
 
   ngOnInit(): void {
@@ -46,24 +47,13 @@ export class AddBranchComponent {
   }
 
   ngAfterViewInit() {
-    // this._shared.branch_data.subscribe(
-    //   (res: any) => {
-    //     console.log(res);
-    //      this.branch_form.patchValue(res)
-    //   }
-    // )
-
-
-    if (this.id > 0) {
-      this.branch_form.patchValue(this._shared.branch)
-
+    if (this.update_data.id) {
+      this.branch_form.patchValue(this.update_data)
     }
 
   }
 
   onSubmit() {
-    console.log("onSubmit");
-
     const branch = new FormData()
     branch.append('BranchName', this.branch_form.get('BranchName')?.value)
     branch.append('BranchEmail', this.branch_form.get('BranchEmail')?.value)
@@ -95,7 +85,6 @@ export class AddBranchComponent {
 
 
   onUpdate() {
-
     const branch_data = new FormData()
     branch_data.append('BranchName', this.branch_form.get('BranchName')?.value)
     branch_data.append('BranchEmail', this.branch_form.get('BranchEmail')?.value)
@@ -114,7 +103,7 @@ export class AddBranchComponent {
     branch_data.append('CityCode', this.branch_form.get('CityCode')?.value)
     branch_data.append('BranchAddress', this.branch_form.get('BranchAddress')?.value)
 
-    this._crud.put_branch(branch_data ,'').subscribe(
+    this._crud.put_branch(branch_data, this.update_data.id).subscribe(
       (res: any) => {
         console.log(res);
         if (res == "Updated successfully") {
