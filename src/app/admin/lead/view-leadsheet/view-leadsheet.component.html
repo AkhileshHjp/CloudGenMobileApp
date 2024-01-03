@@ -1,1 +1,38 @@
-<p>view-leadsheet works!</p>
+<div id="wrapper">
+    <mat-toolbar>  Lead View </mat-toolbar>
+
+    <form [formGroup]="lead_form">
+
+        <mat-form-field class="example-full-width" appearance="fill" >
+            <mat-label>Client Name</mat-label>
+            <input matInput placeholder="Enter Client Name" formControlName="client_name" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Contact No</mat-label>
+            <input matInput placeholder="Enter Contact No" formControlName="contact_no" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email ID</mat-label>
+            <input matInput placeholder="Enter Email ID" formControlName="eMAIL_ID" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Enter Address" formControlName="address" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Product Name</mat-label>
+            <input matInput placeholder="Enter Product Name" formControlName="productname" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Contact Person</mat-label>
+            <input matInput placeholder="Enter Contact Person" formControlName="contactperson" readonly>
+        </mat-form-field>
+    </form>
+
+    <br>
+</div>

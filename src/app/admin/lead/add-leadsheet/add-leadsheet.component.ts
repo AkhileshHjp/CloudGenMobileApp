@@ -18,7 +18,7 @@ export class AddLeadsheetComponent {
     private _shared: SharedService,
     private _routing: Router
   ) {
-    this.update_data = this._routing.getCurrentNavigation()
+    this.update_data = this._routing.getCurrentNavigation()?.extras
   }
 
   ngOnInit(): void {
@@ -32,6 +32,8 @@ export class AddLeadsheetComponent {
     })
 
     if (this.update_data.id) {
+      console.log( this.update_data);
+      
       this.lead_form.patchValue(this.update_data)
     }
 
@@ -52,7 +54,7 @@ export class AddLeadsheetComponent {
     this._crud.post_leadSheet(lead_data).subscribe(
       (res: any) => {
         console.log(res);
-        this._routing.navigate(['admin/leadView'])
+        this._routing.navigate(['admin/leadList'])
       }
     )
 
@@ -72,7 +74,7 @@ export class AddLeadsheetComponent {
         console.log(res);
         if (res == 'Update successfully') {
           alert(res)
-          this._routing.navigate(['/admin/leadView'])
+          this._routing.navigate(['admin/leadList'])
         }
       }
     )

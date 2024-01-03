@@ -9,7 +9,7 @@
     </mat-toolbar>
   
     <mat-card class="example-card" *ngFor="let data of lead_data">
-      <mat-card-header>
+      <mat-card-header (click)="onView(data)">
         <mat-card-title><mat-icon>domain</mat-icon> {{data.productname}}</mat-card-title>
         <mat-card-subtitle *ngIf="data.client_name"><mat-icon>person</mat-icon> {{data.client_name}}</mat-card-subtitle>
         <mat-card-subtitle *ngIf="data.contact_no"><mat-icon> phone</mat-icon>{{data.contact_no}}</mat-card-subtitle>
@@ -21,7 +21,6 @@
 
         <button mat-icon-button color="primary" (click)="onEdit(data)">
           <mat-icon>edit</mat-icon>
-
         </button>
       </mat-card-actions>
     </mat-card>

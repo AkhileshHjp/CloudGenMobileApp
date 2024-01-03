@@ -30,4 +30,8 @@ export class LeadsheetListComponent implements OnInit{
     this._routing.navigate(['/admin/addLead'] ,data)
 
   }
+
+  onView(data:any){
+     this._routing.navigate(['/admin/viewLead'], data)
+  }
 }
