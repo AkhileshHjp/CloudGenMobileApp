@@ -1,0 +1,41 @@
+<div id="wrapper">
+    <mat-toolbar> {{update_data.id?'Update Lead':'Add Lead'}}</mat-toolbar>
+
+    <form [formGroup]="lead_form">
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Client Name</mat-label>
+            <input matInput placeholder="Enter Client Name" formControlName="client_name">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Contact No</mat-label>
+            <input matInput placeholder="Enter Contact No" formControlName="contact_no">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email ID</mat-label>
+            <input matInput placeholder="Enter Email ID" formControlName="eMAIL_ID">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Enter Address" formControlName="address">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Product Name</mat-label>
+            <input matInput placeholder="Enter Product Name" formControlName="productname">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Contact Person</mat-label>
+            <input matInput placeholder="Enter Contact Person" formControlName="contactperson">
+        </mat-form-field>
+
+
+        <button mat-raised-button (click)="update_data.id ? onUpdate() : onSubmit()" color="warn">Submit</button>
+    </form>
+
+    <br>
+</div>
