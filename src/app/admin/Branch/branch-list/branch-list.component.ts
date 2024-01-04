@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class BranchListComponent  implements OnInit{
   branch_data: any
-
+  filter_branch_data: any
   constructor(
     // private _crud : AdminCrudService
     private _crud: CrudService,
@@ -22,6 +22,7 @@ export class BranchListComponent  implements OnInit{
     this._crud.get_branch().subscribe(
       (res: any) => {
         this.branch_data = res
+        this.filter_branch_data =  res
       }
     )
   }
@@ -32,6 +33,35 @@ export class BranchListComponent  implements OnInit{
 
   onEdit(data: any) {
     this._router.navigate(['admin/addBranch'] , data)
+  }
+
+  OnSearch(e:any){    
+     this.branch_data =  this.filter_branch_data.filter((re:any)=>{
+      if (re.BranchName.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      if (re.LandLineNo.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+      
+      if (re.CityName.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      if (re.ContactPerson.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      if (re.ContactPersonMobile.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      return false
+
+     }
+     )
+
   }
 
 }

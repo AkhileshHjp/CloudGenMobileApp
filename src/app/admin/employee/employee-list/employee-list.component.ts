@@ -10,6 +10,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class EmployeeListComponent {
   lead_data: any
+  filter_lead_data : any
   constructor(
     // private _crud : AdminCrudService
     private _crud: CrudService,
@@ -23,6 +24,7 @@ export class EmployeeListComponent {
       (res: any) => {
         // console.log(res);
         this.lead_data = res
+        this.filter_lead_data = res
       }
     )
   }
@@ -34,5 +36,24 @@ export class EmployeeListComponent {
   OnEdit(data: any) {
     console.log(data);
     this._router.navigate(['admin/addEmployee'], data)
+  }
+
+  onSearch(e:any){
+
+     this.lead_data  =   this.filter_lead_data.filter((res:any)=>{
+      if (res.employee_first_name.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      if (res.employee_type.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      if (res.mobile_no.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+        return false
+     })
   }
 }

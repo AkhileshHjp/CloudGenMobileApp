@@ -4,7 +4,7 @@
       <span>  Employee List </span>
       <div class="search-box">
         <button class="btn-search"><mat-icon>search</mat-icon> </button>
-        <input type="text" class="input-search" placeholder="Type to Search...">
+        <input type="text" (keyup)="onSearch($event)" class="input-search" placeholder="Type to Search...">
       </div>
     </mat-toolbar>
   

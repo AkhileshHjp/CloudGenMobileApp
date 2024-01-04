@@ -8,8 +8,9 @@ import { SharedService } from 'src/app/shared.service';
   templateUrl: './leadsheet-list.component.html',
   styleUrls: ['./leadsheet-list.component.css']
 })
-export class LeadsheetListComponent implements OnInit{
-  lead_data: any
+export class LeadsheetListComponent implements OnInit {
+  lead_data: any;
+  filter_lead_data: any
   constructor(
     private _crud: CrudService,
     private _routing: Router,
@@ -21,17 +22,46 @@ export class LeadsheetListComponent implements OnInit{
       (res: any) => {
         console.log(res);
         this.lead_data = res.reverse()
+        this.filter_lead_data = res
       }
     )
   }
 
 
   onEdit(data: any) {
-    this._routing.navigate(['/admin/addLead'] ,data)
+    this._routing.navigate(['/admin/addLead'], data)
 
   }
 
-  onView(data:any){
-     this._routing.navigate(['/admin/viewLead'], data)
+  onView(data: any) {
+    this._routing.navigate(['/admin/viewLead'], data)
+  }
+
+
+  onSearch(e: any) {
+
+    this.lead_data = this.filter_lead_data.filter((res: any) => {
+      if (res.productname.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      if (res.client_name.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      if (res.contact_no.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      if (res.contactperson.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+      
+      if (res.address.toString().toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
+        return true;
+      }
+
+      return false
+    })
   }
 }
