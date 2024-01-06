@@ -14,6 +14,7 @@ import { LeadsheetListComponent } from './lead/leadsheet-list/leadsheet-list.com
 import { QuotationAddComponent } from './quotation/quotation-add/quotation-add.component';
 import { QuotationViewComponent } from './quotation/quotation-view/quotation-view.component';
 import { QuotationListComponent } from './quotation/quotation-list/quotation-list.component';
+import { AssignLeadComponent } from './lead/assign-lead/assign-lead.component';
 
 const routes: Routes = [
   
@@ -32,6 +33,7 @@ const routes: Routes = [
     {path: 'addQuotaion', component: QuotationAddComponent },
     {path: 'viewQuotaion', component: QuotationViewComponent },
     {path: 'quotaionList', component: QuotationListComponent },
+    {path: 'assignLead', component: AssignLeadComponent },
     
   ]}
 ];

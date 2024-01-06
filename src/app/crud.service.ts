@@ -71,6 +71,9 @@ export class CrudService {
     return this.http.post(`${this.baseUrl}api/ManageLeadSheet/${id}`, data)
   }
 
+  assign_lead(data:any){
+    return  this.http.post(`${this.baseUrl}api/Lead_assign`, data)
+  }
 
   // for Quotation
 

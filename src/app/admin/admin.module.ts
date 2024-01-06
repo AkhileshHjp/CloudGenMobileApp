@@ -26,6 +26,8 @@ import { ViewLeadsheetComponent } from './lead/view-leadsheet/view-leadsheet.com
 import { QuotationAddComponent } from './quotation/quotation-add/quotation-add.component';
 import { QuotationViewComponent } from './quotation/quotation-view/quotation-view.component';
 import { QuotationListComponent } from './quotation/quotation-list/quotation-list.component';
+import { AssignLeadComponent } from './lead/assign-lead/assign-lead.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { QuotationListComponent } from './quotation/quotation-list/quotation-lis
     QuotationAddComponent,
     QuotationViewComponent,
     QuotationListComponent,
+    AssignLeadComponent,
     
   ],
   imports: [
@@ -60,7 +63,8 @@ import { QuotationListComponent } from './quotation/quotation-list/quotation-lis
     MatInputModule,
     HttpClientModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
     
   ]
 })

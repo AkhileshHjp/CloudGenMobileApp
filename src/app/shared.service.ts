@@ -13,6 +13,8 @@ export class SharedService {
   branch_data: any
   lead_sheet :any
 
+
+  
   getBranchData(data:any){
       this.branch_data = data
   }

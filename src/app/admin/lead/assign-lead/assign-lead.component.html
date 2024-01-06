@@ -1,0 +1,47 @@
+<div id="wrapper">
+
+    <mat-toolbar>
+        <span> Assign Lead</span>
+        <div class="search-box">
+            <button class="btn-search"><mat-icon>search</mat-icon> </button>
+            <input type="text" (keyup)="onSearch($event)" class="input-search" placeholder="Type to Search...">
+        </div>
+    </mat-toolbar>
+
+    <mat-toolbar>
+        <mat-form-field>
+            <mat-label>Assign Employee</mat-label>
+            <select matNativeControl required (change)="onChange($event)">
+                <option *ngFor="let data of emp_data" value="{{data.id}}"  >{{data.employee_first_name}}
+                </option>
+            </select>
+        </mat-form-field>
+
+        <button (click)="onAssign()" mat-raised-button color="primary">Assign</button>
+    </mat-toolbar>
+    <mat-card class="example-card" *ngFor="let data of lead_data">
+        <mat-card-header>
+            <mat-card-title><mat-icon>domain</mat-icon> {{data.productname}}</mat-card-title>
+            <mat-card-subtitle *ngIf="data.client_name"><mat-icon>person</mat-icon>
+                {{data.client_name}}</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="data.contact_no"><mat-icon>
+                    phone</mat-icon>{{data.contact_no}}</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="data.contactperson"> <mat-icon>person</mat-icon>
+                {{data.contactperson}}</mat-card-subtitle>
+            <mat-card-subtitle *ngIf="data.address"><mat-icon> location_on</mat-icon>
+                {{data.address}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-actions>
+            <!-- <input type="checkbox" value="{{data.id}}" > -->
+            <input type="checkbox" name="{{data.id}}" value="{{data.id}}">
+            
+        </mat-card-actions>
+    </mat-card>
+
+    <br>
+    
+
+    
+</div>
+
