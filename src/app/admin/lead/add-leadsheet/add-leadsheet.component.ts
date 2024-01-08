@@ -54,7 +54,10 @@ export class AddLeadsheetComponent {
     this._crud.post_leadSheet(lead_data).subscribe(
       (res: any) => {
         console.log(res);
-        this._routing.navigate(['admin/leadList'])
+        if(res =='Insert successfully'){
+          this._routing.navigate(['admin/leadList'])
+          alert(res)
+        }
       }
     )
 

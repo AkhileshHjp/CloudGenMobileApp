@@ -64,31 +64,55 @@ export class AssignLeadComponent {
       checkedValues.push(checkbox.attributes[3].value);
     });
 
-    console.log(`lead_id : ${checkedValues.toString().split(',')[0]}`);
-    console.log(`assign_status : 1`);
-    console.log(`assign_by', ${this.LoginData.employeeId}`);
-    console.log(`assign_to', ${this.LeadAssignedTo}`);
+    
 
     
     for (let i = 0; i < checkboxes.length; i++) {
-      const assigndata = new FormData()
-      assigndata.append('LeadAssignedTo', this.LeadAssignedTo),
-        assigndata.append('AssignedBy', this.LoginData.employeeId),
-        assigndata.append('LeadStatus', '1')
-      assigndata.append('LeadID', checkedValues.toString().split(',')[i])
+      // const assigndata = new FormData()
+      // assigndata.append('LeadAssignedTo', this.LeadAssignedTo),
+      //   assigndata.append('AssignedBy', this.LoginData.employeeId),
+      //   assigndata.append('LeadStatus', '1')
+      // assigndata.append('LeadID', checkedValues.toString().split(',')[i])
 
-      this._crud.assign_lead(assigndata).subscribe(
-        (res: any) => {
-          console.log(res);
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
+      this.leadAssign(checkedValues.toString().split(',')[i])
+
+      // this._crud.assign_lead(assigndata).subscribe(
+      //   (res: any) => {
+      //     console.log(res);
+      //   },
+      //   (error) => {
+      //     console.log(error);
+      //   }
+      // )
       
     }
    
   }
+
+  
+  leadAssign(id:any){
+    console.log(`lead_id : ${id}`);
+    console.log(`assign_status : 1`);
+    console.log(`assign_by', ${this.LoginData.employeeId}`);
+    console.log(`assign_to', ${this.LeadAssignedTo}`);
+
+    const assigndata = new FormData()
+    assigndata.append('LeadAssignedTo', this.LeadAssignedTo),
+      assigndata.append('AssignedBy', this.LoginData.employeeId),
+      assigndata.append('LeadStatus', '1')
+    assigndata.append('LeadID', id)
+
+       this._crud.assign_lead(assigndata).subscribe(
+      (res: any) => {
+        console.log(res);
+        alert(res)
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
 
   onSearch(e: any) {
 
