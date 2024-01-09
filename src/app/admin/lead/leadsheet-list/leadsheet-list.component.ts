@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { CrudService } from 'src/app/crud.service';
 import { SharedService } from 'src/app/shared.service';
+import { AssignLeadComponent } from '../assign-lead/assign-lead.component';
 
 @Component({
   selector: 'app-leadsheet-list',
@@ -14,7 +16,8 @@ export class LeadsheetListComponent implements OnInit {
   constructor(
     private _crud: CrudService,
     private _routing: Router,
-    private _shared: SharedService
+    private _shared: SharedService,
+    private  _dolog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +40,13 @@ export class LeadsheetListComponent implements OnInit {
     this._routing.navigate(['/admin/viewLead'], data)
   }
 
+
+  onLeadAassign(data:any){
+    this._dolog.open(AssignLeadComponent,{
+      disableClose:true,
+      data:data
+    })
+  }
 
   onSearch(e: any) {
 

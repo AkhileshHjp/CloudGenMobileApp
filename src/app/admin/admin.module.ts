@@ -28,6 +28,10 @@ import { QuotationViewComponent } from './quotation/quotation-view/quotation-vie
 import { QuotationListComponent } from './quotation/quotation-list/quotation-list.component';
 import { AssignLeadComponent } from './lead/assign-lead/assign-lead.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +68,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     HttpClientModule,
     MatButtonModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDialogModule,
+    FormsModule
     
   ]
 })
